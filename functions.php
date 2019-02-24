@@ -69,9 +69,9 @@ function rda_styles() {
    
     function start_lvl(&$output, $depth = 0, $args = array() ){ // ul
       $indent = str_repeat("\t", $depth);
-      $submenu = ($depth >= 0)? ' sub-menu list-group' : '';
+      $submenu = ($depth >= 0)? ' sub-menu' : ''; //inner ul classes
       $collapse = ($depth >= 0)? ' collapse' : '';
-      $output .= "\n$indent<ul class=\"panel myside-menu$submenu depth_$depth $collapse\">\n";
+      $output .= "\n$indent<ul class=\"myside-menu$submenu depth_$depth $collapse\">\n";
     }//start_lvl
   
     /*
@@ -143,7 +143,7 @@ function rda_styles() {
 
           $classes[] = ( $args->walker->has_children ) ? 'dropdown' : '';
           $classes[] = ( $item->curent || $item->curent_item_anchestor) ? 'active' : '';
-          $classes[] = 'list-group-item menu-item-' . $item->ID; // Here @list-group-item@ clas added
+          $classes[] = 'menu-item-' . $item->ID; // Here @list-group-item@ clas added
           if ( $depth && $args->walker->has_children ){
             $classes[] = 'dropdown-submenu';
           }
@@ -161,7 +161,7 @@ function rda_styles() {
           $attributes = ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
           $attributes = ! empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-          $attributes .= ( $args->walker->has_children ) ? ' class="dropdown-togle" data-togle="dropdown"' : '';
+          $attributes .= ( $args->walker->has_children ) ? ' class="dropdown-togle" ' : '';
 
           $item_output = $args->before;
           $item_output .= '<a' . $attributes . '>';

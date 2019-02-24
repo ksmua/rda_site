@@ -6,67 +6,52 @@
                 wp_nav_menu(array(
                     'theme_location'  =>  'side-menu',
                     'container'       =>  'div',
-                    'container_class' =>  'side-menu-container',
+                    'container_class' =>  'side-menu-container, sidenav',
                     // 'container_id'    =>  'accordion',
                     // 'menu_class'   =>  '<ul class="" ',
                     // 'menu_id'      =>  '<ul id="" ',
-                    'menu_class'      =>  'list-group', 
+                    'menu_class'      =>  '', 
                     'walker'          =>  new Walker_Naw_Side()
                 ));
 
             ?>
-            <p>
-              This is the sidebar
-            </p>
-            <p>ТЕСТ АКОРДИОН</p>
-            <!-- ТЕСТ -->
- <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  
- <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Назва меню #1
-        </a>
-      </h4>
-    </div>
-    
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Зміст панелі #1.
-      </div>
-    </div>
-  </div>
+          
+          <!-- =========== NAV MENU TEST============ -->
+           <div class="sidenav">
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#clients">Clients</a>
+              <a href="#contact">Contact</a>
+              
+              <button class="dropdown-btn">Dropdown 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-container">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+              
+              <a href="#contact">Search</a>
+          </div>
 
+                
+          <script>
+          /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+          var dropdown = document.getElementsByClassName("dropdown-btn");
+          var i;
 
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Назва меню #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Зміст панелі #2.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Назва меню #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Зміст панелі #3
-      </div>
-    </div>
-  </div>
-</div>
-            <!-- ТЕСТ -->
+          for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+            } else {
+            dropdownContent.style.display = "block";
+            }
+            });
+          }
+          </script>
+          <!-- =========== NAV MENU TEST============ -->
         </div> 
