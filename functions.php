@@ -44,8 +44,7 @@ function rda_styles() {
     ]);
   });
   
- 
-  
+   
   /**
   *            WALKER
   *http://wordpressunik.ru/wordpress_walker_nav
@@ -60,8 +59,6 @@ function rda_styles() {
       </span></a></li>// end_el()
       <li><a>Link</a></li>
       <li><a>Link</a></li>
-      <li><a>Link</a></li>
-      <li><a>Link</a></li>
     </ul> // end_lvl()
   </div>
   */
@@ -70,8 +67,8 @@ function rda_styles() {
     function start_lvl(&$output, $depth = 0, $args = array() ){ // ul
       $indent = str_repeat("\t", $depth);
       $submenu = ($depth >= 0)? ' sub-menu' : ''; //inner ul classes
-      $collapse = ($depth >= 0)? ' collapse' : '';
-      $output .= "\n$indent<ul class=\"myside-menu$submenu depth_$depth $collapse\">\n";
+      $collapse = ''; //($depth >= 0)? ' collapse' : '';
+      $output .= "\n$indent<ul class=\"myside-menu$submenu dropdown-container depth_$depth $collapse\" id=\"dropdown-container-id\" >\n"; // add id=\"dropdown-container-id\"
     }//start_lvl
   
     /*
@@ -141,7 +138,7 @@ function rda_styles() {
 
           $classes = empty( $item->classes ) ? array() : (array)$item->classes;
 
-          $classes[] = ( $args->walker->has_children ) ? 'dropdown' : '';
+          $classes[] = ( $args->walker->has_children ) ? 'dropdown-btn' : '';
           $classes[] = ( $item->curent || $item->curent_item_anchestor) ? 'active' : '';
           $classes[] = 'menu-item-' . $item->ID; // Here @list-group-item@ clas added
           if ( $depth && $args->walker->has_children ){
@@ -159,9 +156,9 @@ function rda_styles() {
           $attributes = ! empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
           $attributes = ! empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
           $attributes = ! empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-          $attributes = ! empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+          $attributes = ! empty($item->url) ? ' href="#"': ''; // . esc_attr($item->url) . '"' : '';// # no link addd now
 
-          $attributes .= ( $args->walker->has_children ) ? ' class="dropdown-togle" ' : '';
+          $attributes .= ( $args->walker->has_children ) ? ' class="dropdown-link" ' : ''; // < a href="..." class="dropdown-link"
 
           $item_output = $args->before;
           $item_output .= '<a' . $attributes . '>';
@@ -177,34 +174,7 @@ function rda_styles() {
   
   } //class Walker_Naw_Side extends Walker_Nav_menu
   
-  // <div class="panel panel-default">
-  //   <div class="panel-heading" role="tab" id="headingOne">
-  //     <h4 class="panel-title">
-  //       <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-  //         Назва меню #1
-  //       </a>
-  //     </h4>
-  //   </div>
-    
-  //   <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
-  //     <div class="panel-body">
-  //       Зміст панелі #1.
-  //     </div>
-  //   </div>
-  // </div>
-  //============================================
-  // <ul id="menu-side-menu" class="menu">
-  //   <li id="menu-item-34" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-34">
-  //     <a href="http://test/2018/09/25/%d0%bf%d1%80%d0%b8%d0%b2%d1%96%d1%82-%d1%81%d0%b2%d1%96%d1%82/">Перший запис!</a>
-  //   </li>
-  //   <li id="menu-item-33" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-has-children menu-item-33">
-  //     <a href="http://test/2018/09/30/%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b9-%d0%b7%d0%b0%d0%bf%d0%b8%d1%81/">Другий запис!</a>
-  //     <ul class="dropdown-menu depth_0">
-  //       <li id="menu-item-41" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-41"><a href="http://test/2019/01/05/%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b9-%d0%b7%d0%b0%d0%bf%d0%b8%d1%81-1/">Другий запис 1</a></li>
-  //       <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-40"><a href="http://test/2019/01/05/%d0%b4%d1%80%d1%83%d0%b3%d0%b8%d0%b9-%d0%b7%d0%b0%d0%bf%d0%b8%d1%81-2/">Другий запис 2</a></li>
-  //     </ul>
-  //   </li>
-  // </ul>
+
    
   //walker
 

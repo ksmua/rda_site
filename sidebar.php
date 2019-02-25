@@ -7,9 +7,9 @@
                     'theme_location'  =>  'side-menu',
                     'container'       =>  'div',
                     'container_class' =>  'side-menu-container, sidenav',
-                    // 'container_id'    =>  'accordion',
-                    // 'menu_class'   =>  '<ul class="" ',
-                    // 'menu_id'      =>  '<ul id="" ',
+                    //'container_id'  =>  'accordion',
+                    //'menu_class'    =>  '<ul class="" ',
+                    //'menu_id'       =>  '<ul id="" ',
                     'menu_class'      =>  '', 
                     'walker'          =>  new Walker_Naw_Side()
                 ));
@@ -17,7 +17,7 @@
             ?>
           
           <!-- =========== NAV MENU TEST============ -->
-           <div class="sidenav">
+           <!-- <div class="sidenav">
               <a href="#about">About</a>
               <a href="#services">Services</a>
               <a href="#clients">Clients</a>
@@ -33,7 +33,7 @@
               </div>
               
               <a href="#contact">Search</a>
-          </div>
+          </div> -->
 
                 
           <script>
@@ -44,7 +44,9 @@
           for (i = 0; i < dropdown.length; i++) {
             dropdown[i].addEventListener("click", function() {
             this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
+            // Changed !!!!!!!
+            var dropdownContent = document.getElementById("dropdown-container-id");
+            // var dropdownContent = this.nextElementSibling;
             if (dropdownContent.style.display === "block") {
             dropdownContent.style.display = "none";
             } else {
@@ -54,4 +56,5 @@
           }
           </script>
           <!-- =========== NAV MENU TEST============ -->
+
         </div> 
