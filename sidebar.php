@@ -56,5 +56,5 @@
           }
           </script>
           <!-- =========== NAV MENU TEST============ -->
-
+[wpb_category_accordion taxonomy="category" orderby="name" order="ASC" show_count="no" hide_empty="yes" icon="+"]
         </div> 

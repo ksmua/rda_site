@@ -40,7 +40,8 @@ function rda_styles() {
     register_nav_menus([
       'header-menu' => 'Меню в шапці сайту',
       'footer-menu' => 'Меню в підвалі сайту',
-      'side-menu' => 'Меню в сайдбарі'
+      'side-menu' => 'Меню в сайдбарі',
+      'right-side-menu' => 'Меню в правому сайдбарі'
     ]);
   });
   

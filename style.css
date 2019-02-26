@@ -450,7 +450,7 @@ ul ul, ul ul li{
   z-index: 1;
   top: 0;
   left: 0; */
-  background-color: white; !important
+  background-color: white !important;
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -459,10 +459,10 @@ ul ul, ul ul li{
 .sidenav a, .dropdown-btn {
   /* padding: 6px 8px 6px 16px; */
   text-decoration: none;
-  font-size: 20px;
+  font-size: 16px;
   /* color: rgb(8, 5, 56); */
   display: block;
-  border: none;
+  border: 1px solid blue;
   background: none;
   width: 100%;
   text-align: left;
@@ -472,12 +472,14 @@ ul ul, ul ul li{
 
 /* On mouse-over */
 .sidenav a:hover, .dropdown-btn:hover {
-  color: rgb(20, 0, 70);
+	color: red;
+	text-decoration: none;
 }
 
 /* Add an active class to the active dropdown button */
 .active {
-  background-color: lightsteelblue;
+	background-color: lightsteelblue;
+	text-decoration: none;
   /* color: white; */
 }
 
@@ -485,19 +487,20 @@ ul ul, ul ul li{
 .dropdown-container {
   display: none;
   background-color: lightgoldenrodyellow;
-  padding-left: 8px;
+	padding-left: 10px;
+	text-decoration: none;
 }
 
 /* Optional: Style the caret down icon */
-.fa-caret-down {
+/* .fa-caret-down {
   float: right;
   padding-right: 8px;
-}
+} */
 
 /* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
+/* @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}
+} */
 
 /* =============== NEW NAV BAR TEST =============== */
