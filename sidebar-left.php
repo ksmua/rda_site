@@ -3,16 +3,19 @@
               Бокова панель меню
             </p>
             <?php 
-                wp_nav_menu(array(
-                    'theme_location'  =>  'side-menu',
-                    'container'       =>  'div',
-                    'container_class' =>  'side-menu-container, sidenav',
-                    //'container_id'  =>  'accordion',
-                    //'menu_class'    =>  '<ul class="" ',
-                    //'menu_id'       =>  '<ul id="" ',
-                    'menu_class'      =>  '', 
-                    'walker'          =>  new Walker_Naw_Side()
-                ));
+              if ( function_exists('dynamic_sidebar') )
+		          dynamic_sidebar('left-sidebar');
+ 
+                // wp_nav_menu(array(
+                //     'theme_location'  =>  'side-menu',
+                //     'container'       =>  'div',
+                //     'container_class' =>  'side-menu-container, sidenav',
+                //     //'container_id'  =>  'accordion',
+                //     //'menu_class'    =>  '<ul class="" ',
+                //     //'menu_id'       =>  '<ul id="" ',
+                //     'menu_class'      =>  '', 
+                //     'walker'          =>  new Walker_Naw_Side()
+                // ));
 
             ?>
           
@@ -56,5 +59,5 @@
           }
           </script>
           <!-- =========== NAV MENU TEST============ -->
-[wpb_category_accordion taxonomy="category" orderby="name" order="ASC" show_count="no" hide_empty="yes" icon="+"]
+
         </div> 

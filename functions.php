@@ -31,22 +31,30 @@ function rda_styles() {
   
   
   /** Add Widgets support in themme */  
-  add_action('widget_init', 'register_my_widgets');
+  add_theme_support('widgets');
 
-
+ 
+  add_action( 'widgets_init', 'register_my_widgets' );
   function register_my_widgets(){
-    register_sidebar(array(
-      'name'  => 'Right Sidebar',  
-      'id'    => 'right_Sidebar',
-      'description' => 'Опис сайдбару',
+	  register_sidebar( array(
+      'name'          => 'Left Sidebar',  
+      'id'            => 'left-sidebar',
+      'description'   => 'Лівий сайдбар (бокова панель)',
       'before_widget' => '<div class="widget %2$s">',
-      'after_widget' => "</div>\n",
-      'before_title' => '<h5 class="widgettitle">',
-      'before_title' => "</h5>\n"
+      'after_widget'  => "</div>\n",
+      'before_title'  => '<h5 class="widgettitle">',
+      'before_title'  => "</h5>\n"
+    ));
+    register_sidebar( array(
+      'name'          => 'Right Sidebar',  
+      'id'            => 'right-sidebar',
+      'description'   => 'Правий сайдбар (бокова панель)',
+      'before_widget' => '<div class="widget %2$s">',
+      'after_widget'  => "</div>\n",
+      'before_title'  => '<h5 class="widgettitle">',
+      'before_title'  => "</h5>\n"
     ));
   }
-
-
 
 
   /** Add Menu support in themme */  

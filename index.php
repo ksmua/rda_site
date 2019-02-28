@@ -21,7 +21,7 @@
         <!-- MAIN CONTENT -->
     <div class="main row">
         
-        <?php get_sidebar(); ?>
+        <?php get_sidebar('left'); ?>
 
         <div class="content col-md-7 col-sm-9">
             <p>This is the MAIN content</p>
@@ -29,7 +29,11 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, unde doloremque, eius corporis qui facilis eligendi, minima voluptates error enim expedita! Repudiandae, hic minus sit ipsa eligendi nesciunt repellat libero.</p>
         </div>
     
-        <?php include ('infobar.php') ?>
+
+        <?php get_sidebar('right'); ?>
+        <?php 
+        // include ('infobar.php')
+         ?>
 
     </div> <!--/main-->
     <!--/MAIN CONTENT -->
