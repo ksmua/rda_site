@@ -15,14 +15,8 @@
                 //     // 'menu_class'      =>  '', 
                 //     // 'walker'          =>  new Walker_Naw_Side()
                 // ));
-
-            
   ?>
 
-
-
   <p>this is infobar</p>
-
-
 
 </div>
